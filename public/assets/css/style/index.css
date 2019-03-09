@@ -1,0 +1,231 @@
+.container {
+  width: 85%;
+}
+.navbar2 {
+  background-color: transparent;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  background-color: transparent;
+  z-index: 2;
+}
+
+
+
+
+/*
+* =======================================================
+*
+* 	HEADER
+*
+* =======================================================
+*/
+
+.bg-clipper {
+  z-index: -1;
+  width:100%;
+  position: absolute;
+  top: -360px;
+  left: -36%;
+}
+
+#headerHome {
+  min-height: 41vh;
+  margin-left: 50px;
+  margin-top: 200px;
+}
+
+#community {
+  font-size: 5em;
+}
+
+#headerHome p {
+  font-size: 2em;
+}
+#pointerBook {
+  position: absolute;
+  right: 200px;
+  top: 200px;
+}
+
+.btnInscriptionHome, .btnInscriptionHome2 {
+  padding: 15px 20px;
+  background: #a2d0d8;
+  color: white;
+  width: 200px;
+  border-radius: 10px;
+  position: relative;
+  top: 80px;
+}
+
+#bottomHome {
+  position: relative;
+  top: 190px;
+  width: 100%;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+#numberStep {
+  font-family: bold;
+  color: #b86e58;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  margin-top: 20px;
+  -ms-animation-delay: 2.5s;
+  -moz-animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
+}
+
+/*
+* =======================================================
+*
+* 	MAIN
+*
+* =======================================================
+*/
+#mainHome {
+  margin-top: 380px;
+}
+
+#steps {
+  height: 100%;
+}
+
+.step, .teasers {
+  height: 25%;
+  margin-top: 100px;
+}
+
+.divStep {
+  position: relative;
+  top: 25%;
+}
+
+.animation {
+  opacity: 0;
+}
+
+.stepNumber {
+  position: relative;
+  top: 30px;
+  font-size: 9em;
+}
+
+.midHeight {
+  height: 500px;
+}
+
+.inverseXL {
+  position: relative;
+  left: 150px;
+}
+
+.inverseXS {
+  position: relative;
+  left: 30px;
+}
+
+.largeImage img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  box-shadow: 6px 24px 61px -12px rgba(0, 0, 0, 0.5);
+}
+
+.text {
+  margin-top: 100px;
+}
+.text h2 {
+  font-size: 2.5em;
+}
+.text p {
+  margin: 10px 0;
+  color: grey;
+  font-size: 1.3em;
+}
+
+.text .button {
+  margin-top: 40px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.text a {
+  padding: 10px 20px;
+  border: 2px solid black;
+  text-decoration: none;
+  color: black;
+}
+
+.text a:hover {
+  color: white;
+  background-color: black;
+}
+
+.btnInscriptionHome2 {
+  width: 380px;
+  font-size: 1.2em;
+}
+
+.btnInscriptionHome2:hover {
+  color: black;
+}
+
+
+/* Media queries */
+@media (max-width: 1470px) {
+  .bg-clipper {
+    top: -300px;
+  }
+}
+@media (max-width: 1300px) {
+  .bg-clipper {
+    top: -250px;
+  }
+  #pointerBook{
+      display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .bg-clipper {
+    top: -150px;
+  }
+  #community {
+    font-size: 3em;
+  }
+  .inverseXL {
+    position: static;
+  }
+
+  .inverseXS {
+    position: static;
+  }
+  .divStep {
+    position: static;
+  }
+  .midHeight {
+    height: auto;
+    margin: 40px 0;
+  }
+}
+.bg {
+  width: 150%;
+}
+@media (max-width: 900px) {
+  .bg-clipper {
+    top: -80px;
+  }
+  #community {
+    font-size: 2em;
+  }
+  #headerHome>p {
+    font-size: 1.5em
+  }
+}
+.bg {
+  width: 150%;
+}

@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+
+{# Title block def in base.html.twig #}
+{% block title %} Erreur {% endblock %}
+
+{#  Breadcrumb trail #}
+{% set active_page = 'Erreur' %}
+
+{# Content block def in base.html.twig #}
+{% block content %}
+
+    <div class="page-404">
+        <div class="col-sm-6 col-sm-offset-3">
+            <h1> 404 </h1>
+        </div>
+        <div class="col-sm-6 col-sm-offset-3">
+            <p> Désolé, cette page n'existe pas </p>
+            <a href="{{ url('livresVoyageurs_home') }}" class="btn btn-primary">RETOURNER VERS L'ACCUEIL</a>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+	<style>
+        @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
+
+        .container {
+            width: 100%;
+            padding: 0;
+        }  
+        .space {
+            width: 80%;
+            margin: auto;
+        } 
+        .page-404  {
+            text-align: center;
+            background-color: #f4f5f9;
+            height: 80vh;
+            padding-top: 80px;
+        }
+        h1 {
+            font-size: 15em;
+            color: #b86e58;
+            font-family: "berkshire swash";
+        }
+        .page-404 p {
+            margin: 0 0 50px 0;
+            color: #b86e58;
+            font-size: 2em;
+        }
+        a {
+            font-size: 1.2em;
+        }
+    </style>
+{% endblock %}

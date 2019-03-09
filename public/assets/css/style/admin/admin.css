@@ -1,0 +1,48 @@
+/*Stylesheet for Admin page*/
+.container {
+  width: 90%;
+}
+
+.heading {
+  text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+  aside {
+    display: none;
+  }
+}
+
+#breakpoint {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #breakpoint {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  #breakpoint {
+    display: block;
+  }
+}
+
+input[type="radio"] {
+  margin: 0 5px;
+}
+
+.change {
+  background-color: #a2d0d8;
+  color: #fff;
+}
+
+.delete {
+  background-color: #b86e58;
+  color: #fff;
+}
+
+.chart {
+  height: 400px;
+}

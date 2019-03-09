@@ -1,0 +1,155 @@
+{# This page inherits from base.html #}
+{% extends 'layout.html.twig' %}
+
+{# Define Title #}
+{% block title %} Accueil {% endblock %}
+
+{#  Breadcrumb trail #}
+{% set active_page = 'Accueil' %}
+
+{# Define Content #}
+{% block content %}
+
+    <div class="bg-clipper">
+        <div class="bg">
+            <svg viewBox="0 0 2226 700" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-48.000000, 0.000000)" fill="#F4F5F9">
+                        <path d="M2136.6539,-1655.83407 C2014.7162,-1777.78223 1808.00357,-1784.65018 1646.19595,-1851.74958 C1490.09758,-1916.47891 1340.41421,-2060 1160.91003,-2060 C981.405859,-2060 831.722489,-1916.47891 675.63465,-1851.74958 C513.816497,-1784.66071 307.114401,-1777.78223 185.166169,-1655.8446 C63.2284698,-1533.89644 56.349987,-1327.18393 -10.7494551,-1165.37641 C-75.4682891,-1009.28866 -219,-859.594847 -219,-680.090778 C-219,-500.597242 -75.4682891,-350.903426 -10.7494551,-194.805145 C56.349987,-33.0081553 63.2284698,173.714887 185.166169,295.652514 C307.103868,417.590141 513.816497,424.46862 675.63465,491.568022 C831.722489,556.297352 981.405859,699.818445 1160.91003,699.818445 C1340.41421,699.818445 1490.09758,556.297352 1646.19595,491.568022 C1808.00357,424.46862 2014.7162,417.590141 2136.6539,295.652514 C2258.60213,173.714887 2265.47008,-33.0081553 2332.56952,-194.805145 C2397.29889,-350.903426 2540.82007,-500.597242 2540.82007,-680.090778 C2540.82007,-859.594847 2397.29889,-1009.28866 2332.56952,-1165.37641 C2265.47008,-1327.18393 2258.60213,-1533.89644 2136.6539,-1655.83407 Z"></path>
+                    </g>
+                </g>
+            </svg>
+        </div>
+    </div>
+
+    <div class="animation" id="headerHome" class="row">
+        <h1 id="community"> COMMUNAUTÉ DE <br> PARTAGE DE LIVRES </h1>
+        <p>Libérez vos livres pour faire du monde une bibliothèque !</p>
+        <p><a class="btnInscriptionHome" href="#">DÉCOUVRIR</a></p>
+    </div>
+
+    <img class="animation" id="pointerBook" src="{{ asset('assets/images/books.png') }}" alt="Image">
+
+    <div id="bottomHome" class="animation">
+        <p id="explain"> Vous possédez un livre que vous souhaitez mettre à la disposition de la communauté ou libérer dans la nature ?
+        <p id="numberStep" class="animated tada"> 3 ETAPES SUFFISENT ! </p>
+    </div>
+
+    <main id="mainHome">
+
+        <section id="steps">
+
+            <article class="step" id="presentation">
+                <div class="container">
+                    <div class="divStep row">
+                        <div class="col-md-1 col-md-push-7 animation">
+                            <p class="stepNumber">1</p>
+                        </div>
+                        <div class="col-md-5 text col-md-push-7 animation midHeight">
+                            <h2>Étiquetez</h2>
+                            <p class="text-justify">Créer un livre voyageur dans votre espace membre puis imprimer son étiquette.
+                                Celle-ci vous permettra de suivre votre livre tout au long de son périple.
+                            </p>
+                            {# <p class="button"><a href="{{ path('livresVoyageurs_espace_sticker', { pseudo: 'Lola123', uniqueId: 18976845 , title: 'Les fables de la fontaine'  } ) }}" target="_blank">DÉCOUVRIR</a></p> #}
+                        </div>
+                        <div class="col-md-6 col-md-pull-6 animation midHeight">
+                            <div class="largeImage animation midHeight">
+                                <img src="{{ asset('assets/images/sticker.png') }}" alt="Image">
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </article>
+
+            <article class="step" id="">
+                <div class="container">
+                    <div class="divStep row">
+                        <div class="col-md-1 animation">
+                            <p class="stepNumber">2</p>
+                        </div>
+                        <div class="col-md-5 text animation midHeight">
+                            <h2>Partagez</h2>
+                            <p> Plusieurs possibilités s'offrent à vous : </p>
+                            <p class="text-justify"><strong> - La libération contrôlée : </strong> partagez votre livre avec un ami, un collègue ou un membre du site. Ce mode vous permet de connaître la prochaine destination de votre livre.</p>
+                            <p class="text-justify"><strong>	- La libération dans la nature : </strong> libérez votre livre dans un lieu publique (parc, gare, café,...) et laissez le hasard prendre les choses en main.</p>
+                            <p> Qui sait quelles seront les futures pérégrinations de votre livre ?
+                            </p>
+                            <p class="button"><a href="#">DÉCOUVRIR</a></p>
+                        </div>
+                        <div class="col-md-6 animation midHeight">
+                            <div class="largeImage inverseXL animation midHeight">
+                                <img src="{{ asset('assets/images/liberer.jpeg') }}" alt="Image">
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </article>
+
+
+            <article class="step" id="">
+                <div class="container">
+                    <div class="divStep row">
+                        <div class="col-md-1 col-md-push-7 animation">
+                            <p class="stepNumber">3</p>
+                        </div>
+                        <div class="col-md-5 col-md-push-7 text animation midHeight">
+                            <h2>Suivez</h2>
+                            <p class="text-justify"> Connectez-vous sur le site et suivez le trajet de votre livre.</p>
+                            <p class="text-justify"> Vous serez en mesure de savoir qui a lu votre livre,
+                                les différentes étapes de son voyage ainsi que les commentaires laissés	par d'autres lecteurs.
+                            </p>
+                            <p class="text-justify"> Certains livres resteront près de chez vous, d'autres
+                                feront le tour du monde.
+                            </p>
+                            {#<p class="button"><a href="{{ path('livresVoyageurs_history', {id_book: 71649948 } ) }}" target="_blank">DÉCOUVRIR</a></p>#}
+                            <p class="button"><a href="#" target="_blank">DÉCOUVRIR</a></p>
+                        </div>
+                        <div class="col-md-6 col-md-pull-6 animation midHeight">
+                            <div class="largeImage animation midHeight">
+                                <img src="{{ asset('assets/images/suiver.jpg') }}" class="img img-responsive" alt="Image">
+                            </div>
+                        </div>
+                    </div> <!-- row -->
+                </div> <!-- container -->
+            </article>
+
+            {# {% if not is_granted('IS_AUTHENTICATED_FULLY') %}
+                <article class="teasers" id="">
+                    <div class="container">
+                        <div class="divStep row">
+                            <div class="col-md-12 animation">
+                                <img class="appIcons" src="" alt="">
+                                <img class="appIcons" src="" alt="">
+                                <a class="btnInscriptionHome2" href="{{ path('livresVoyageurs_inscription') }}">JE M'INSCRIS GRATUITEMENT</a>
+                            </div>
+                        </div> <!-- row -->
+                    </div> <!-- container -->
+                </article>
+
+                <article class="teasers" id="">
+                    <div class="container">
+                        <div class="divStep row">
+                            <div class="col-md-12 animation">
+                                <h2>Plus de XXX livres partagés en france </h2>
+                                <img class="picsComunity" src="" alt="">
+                                <img class="picsComunity" src="" alt="">
+                                <a class="btnInscriptionHome2" href="{{ path('livresVoyageurs_inscription') }}">REJOIGNEZ LA COMMUNAUTE AUJOURD"HUI</a>
+                            </div>
+                        </div> <!-- row -->
+                    </div> <!-- container -->
+                </article>
+            {% endif %} #}
+        </section>
+    </main>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('assets/css/style/index.css') }}">
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/scripts/index.js') }}"></script>
+{% endblock %}
