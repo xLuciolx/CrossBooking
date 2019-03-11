@@ -1,0 +1,106 @@
+{# This page inherits from base.html #}
+{% extends 'layout.html.twig' %}
+
+{# Customized error messages #}
+{% form_theme formCapture '_form_errors.html.twig' %}
+
+{# Define Title #}
+{% block title %} Enregister une capture {% endblock %}
+
+{#  Breadcrumb trail #}
+{% set active_page = 'Capture' %}
+
+
+{# Define Content #}
+{% block content %}
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6" id="marginNewCapt">
+            <div class="card contour">
+                <div class="titleForm text-center">
+                    <h1> Enregistrer une capture </h1>
+                </div>
+
+                <div class="contentForm">
+                    <!-- Display Success Message -->
+                    {% if captureResult == 'success' %}
+                        <div class="alert alert-success">
+                            <p class="text-center">
+                                <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                Félicitation, votre capture a été enregistré.
+                            </p>
+                        </div>
+                    {% endif %}
+                    {% if captureResult == 'fail' %}
+                        <div class="alert alert-danger">
+                            <p class="text-center">
+                                <i class="fa fa-thumbs-down" aria-hidden="true"></i>
+                                Numéro unique incorrect.
+                            </p>
+                        </div>
+                    {% endif %}
+
+                    <!-- Form: Book I have captured -->
+                    <form id="formCapturedBook" action="" method="POST">
+
+                        <!-- Id Book - Table Pointers -->
+                        <div class="form-group">
+                            <label for="id_book">Numéro unique inscript sur l'étiquette du livre *</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-book"></i></span>
+                                {{ form_widget(formCapture.pointer.id_book) }}
+                            </div>
+                            {{ form_errors(formCapture.pointer.id_book) }}
+                        </div>
+                        <!-- address - Table Pointers -->
+                        <div class="form-group">
+                            <label for="address">Ville *</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                {{ form_widget(formCapture.pointer.address) }}
+                            </div>
+                            {{ form_errors(formCapture.pointer.address) }}
+                        </div>
+                        <!-- city_pointer - Table Pointers -->
+                        {{ form_row(formCapture.pointer.city) }}
+                        <!-- lat_pointer - Table Pointers -->
+                        {{ form_row(formCapture.pointer.latitude) }}
+                        <!-- lng_pointer - Table Pointers -->
+                        {{ form_row(formCapture.pointer.longitude) }}
+
+                        <!-- Commentaire - Table Capture -->
+                        <div class="form-group">
+                            <label for="comment_capture">Commentaire</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-align-left"></i></span>
+                                {{ form_widget(formCapture.comment) }}
+                            </div>
+                        </div>
+
+                        {{ form_row(formCapture._token) }}
+                        <!-- Submission -->
+                        <div class="form-group text-center">
+                            <input type="submit" name="btnSub" value="Entrer" id="btn_memberInscription" class="btn btn-success">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #marginNewCapt {
+            min-height: 75vh
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/scripts/newCapture.js') }}"></script>
+{% endblock %}

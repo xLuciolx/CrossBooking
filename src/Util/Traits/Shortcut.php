@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Utils\Traits;
+namespace App\Util\Traits;
 
 trait Shortcut {
     

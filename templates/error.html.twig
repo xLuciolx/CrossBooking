@@ -15,17 +15,16 @@
         </div>
         <div class="col-sm-6 col-sm-offset-3">
             <p> Désolé, cette page n'existe pas </p>
-            <a href="{{ url('livresVoyageurs_home') }}" class="btn btn-primary">RETOURNER VERS L'ACCUEIL</a>
+            <a href="{{ url('home') }}" class="btn btn-primary">RETOURNER VERS L'ACCUEIL</a>
         </div>
     </div>
 
 {% endblock %}
 
 {% block stylesheets %}
-	{{ parent() }}
-	<style>
+    {{ parent() }}
+    <style>
         @import url('https://fonts.googleapis.com/css?family=Berkshire+Swash');
-
         .container {
             width: 100%;
             padding: 0;

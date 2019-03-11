@@ -1,7 +1,15 @@
 security:
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        from_database:
+            entity:
+                # the class of the entity that represents users
+                class: App\Entity\Member
+                # the property to query by - e.g. username, email, etc
+                property: pseudo
+                # managers, this option defines which one to use
+                # manager_name: 'customer'
+
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -10,17 +18,18 @@ security:
             anonymous: true
 
             # activate different ways to authenticate
+            logout:
+                path: /deconnexion
+                target: /
 
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+            form_login:
+                check_path: login
 
-            # form_login: true
-            # https://symfony.com/doc/current/security/form_login_setup.html
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        # - { path: ^/admin, roles: ROLE_ADMIN }
+        # - { path: ^/mentions-legales, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
     
     encoders:

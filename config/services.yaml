@@ -4,7 +4,8 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: 'en'
+    locale: 'fr'
+    assets_path: '%kernel.project_dir%/public/assets'
     avatar_path: '%kernel.project_dir%/public/assets/images/avatar'
 
 services:
@@ -27,3 +28,11 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Service\Register:
+        arguments: ['@doctrine', '@security.password_encoder', '%kernel.project_dir%/public/assets/images/avatar']
+
+    App\Service\Mailer:
+        arguments: ['@doctrine']
+
+    App\Service\BookManager:
+        arguments: ['@doctrine']

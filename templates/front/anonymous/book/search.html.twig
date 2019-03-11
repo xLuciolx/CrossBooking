@@ -1,0 +1,66 @@
+{# This page inherits from base.html #}
+{% extends 'layout.html.twig' %}
+
+{# Define Title #}
+{% block title %} Rechercher {% endblock %}
+
+{#  Breadcrumb trail #}
+{% set active_page = 'Recherche' %}
+
+
+{# Define Content #}
+{% block content %}
+
+
+
+        <div class="col-md-offset-3 col-md-6" id="marginSearch">
+            <div class="card contour">
+                <div class="titleForm text-center">
+                    <h1> Rechercher un livre par ISBN </h1>
+                </div>
+
+                <div class="contentForm">
+
+                    <div class="search-icon displayFlex">
+                        <div class="search-icon-inner">
+                            <i class="ion-ios-search-strong"></i>
+                        </div>
+                        <div class="search-box">
+                            <input type="text" id="search" placeholder="ISBN ..." autocomplete="off" >
+                            <button id="research">Rechercher</button>
+                        </div>
+                        <p class="error alert alert-danger" id="isbnInconnu">ISBN inconnu</p>
+                    </div> <!-- search-icon -->
+
+                    <div id="list"></div>
+
+                    <!-- Display ISBN API return -->
+                    <div class="card">
+                        <div class="col-md-3">
+                            <img class="card-img-top img img-responsive" id="bookImage" src="" alt="">
+                        </div>
+                        <div class="card-block col-md-9">
+                            <ul class="list-group list-group-flush" id="bookInfos"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        #marginSearch {
+            min-height: 75vh
+        }
+    </style>
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
+    <script src="{{ asset('assets/js/scripts/search.js') }}"></script>
+{% endblock %}

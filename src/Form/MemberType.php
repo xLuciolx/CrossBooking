@@ -2,7 +2,6 @@
 
 namespace App\Form;
 
-use App\Entity\Member;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,12 +15,13 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
-// use FabSchurt\Silex\Provider\Captcha\Form\Type\CaptchaType;
 
 use Symfony\Component\Validator\Constraints\Email;
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\IsTrue;
-use App\Utils\Constraints\PasswordConstraint;
+
+use App\Util\Constraints\PasswordConstraint;
+use App\Entity\Member;
 
 class MemberType extends AbstractType
 {
@@ -72,21 +72,14 @@ class MemberType extends AbstractType
                 'class'           => 'form-control'
                 ]
         ))
-        ->add('role', HiddenType::class, [
-            'attr' => [
-                'value'           => 'ROLE_MEMBER'
-            ]
-        ])
         ->add('avatar', FileType::class, [
             'required'            =>  false,
             'label'               =>  false,
             'attr'                =>  [
                 'class'           => 'form-control dropify',
-                // 'data-default-file'            => '/livresVoyageurs/public/assets/images/avatar/default.png',
                 'data-allowed-file-extensions' => 'jpg jpeg png'
             ]
         ])
-        // ->add('captcha', CaptchaType::class)
         ->add('termsAccepted', CheckboxType::class, array(
             'label'               =>  'J\'ai lu et j\'accepte les termes et conditions',
             'mapped'              =>  false,

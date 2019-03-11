@@ -4,8 +4,7 @@
 	<div class="container row space">
 		<!-- left-menu -->
 		<div class="animation col-sm-4 logo">
-			<a href="#" class="logo">
-				{# <img class="img img-responsive" alt="Logo" src="{{ asset('assets/images/logo.png') }}" /> #}
+			<a href="{{ path('home') }}" class="logo">
 				<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="100px" height="100px" viewBox="0 0 100 100" enable-background="new 0 0 100 100" xml:space="preserve">
 					<g>
 						<path fill="#a8a8a8" d="M43.124,70.27c1.039,5.141,0.995,10.558-0.304,15.916c5.678-12.149,19.727-18.412,32.756-14.072   l3.014-9.038C65.91,58.854,52.518,62.041,43.124,70.27z"/>
@@ -32,17 +31,17 @@
 				<ul class="displayFlex animation hidden-xs">
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 						<li {% if active_page == 'Accueil' %} class="active"{% endif%}><a href="{{ path('home') }}"> Accueil </a></li>
-						{#<li><a href="{{ path('livresVoyageurs_deconnexion') }}"> Déconnexion </a></li>#}
+						<li><a href="{{ path('logout') }}"> Déconnexion </a></li>
 					{% else %}
 						<li {% if active_page == 'Accueil' %} class="active"{% endif%}><a href="{{ path('home') }}"> Accueil </a></li>
-						<li {% if active_page == 'Inscription' %} class="active"{% endif%}><a class="blackBorder" href="{{ path('inscription') }}"> Inscription </a></li>
-						{#<li {% if active_page == 'Connexion' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_connexion') }}">Connexion </a></li>#}
+						<li {% if active_page == 'Inscription' %} class="active"{% endif%}><a class="blackBorder" href="{{ path('registration') }}"> Inscription </a></li>
+						<li {% if active_page == 'Connexion' %} class="active"{% endif%}><a href="{{ path('login') }}">Connexion </a></li>
 					{% endif %}
 					{% if is_granted('ROLE_MEMBER') %}
-						{#<li><a href="{{ path('livresVoyageurs_espace', {pseudo: app.user.pseudo_member} ) }}" class="blackBorder"><span class="ion-person"/> Mon Espace </a></li>#}
+						{#<li><a href="{{ path('dashboard_member', {pseudo: app.user.pseudo_member} ) }}" class="blackBorder"><span class="ion-person"/> Mon Espace </a></li>#}
 					{% endif %}
 					{% if is_granted('ROLE_ADMIN') %}
-						{#<li><a href="{{ path('livresVoyageurs_administrator', {pseudoAdmin: app.user.pseudo_member} ) }}" class="blackBorder">Administration </a></li>#}
+						{#<li><a href="{{ path('dashboard_administrator', {pseudoAdmin: app.user.pseudo_member} ) }}" class="blackBorder">Administration </a></li>#}
 					{% endif %}
 
 				</ul>
@@ -61,24 +60,24 @@
 					{% if is_granted('IS_AUTHENTICATED_FULLY') %}
 						<div class="hidden-sm hidden-md hidden-lg">
 							<li {% if active_page == 'Accueil' %} class="active"{% endif%}><a href="{{ path('home') }}"> Accueil </a></li>
-							{#<li><a href="{{ path('livresVoyageurs_deconnexion') }}"> Déconnexion </a></li>#}
+							<li><a href="{{ path('logout') }}"> Déconnexion </a></li>
 							{% if is_granted('ROLE_MEMBER') %}
-								{#<li><a href="{{ path('livresVoyageurs_espace', {pseudo: app.user.pseudo_member} ) }}"><span class="ion-person"/> Mon Espace </a></li>#}
+								{#<li><a href="{{ path('dashboard_member', {pseudo: app.user.pseudo_member} ) }}"><span class="ion-person"/> Mon Espace </a></li>#}
 							{% endif %}
 							{% if is_granted('ROLE_ADMIN') %}
-								{#<li><a href="{{ path('livresVoyageurs_administrator', {pseudoAdmin: app.user.pseudo_member} ) }}">Administration </a></li>#}
+								{#<li><a href="{{ path('dashboard_administrator', {pseudoAdmin: app.user.pseudo_member} ) }}">Administration </a></li>#}
 							{% endif %}
 						</div>
-						{#<li class="animation" {% if active_page == 'Disponible' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_bookList') }}"><span class="ion-ios-book"/> Livres Disponibles </a></li>#}
-						{#<li class="animation" {% if active_page == 'Recherche' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_search') }}"><span class="ion-search"/> Recherche </a></li>#}
-						{#<li class="animation" {% if active_page == 'Connexion' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_contact') }}"><span class="ion-email"/> Contact </a></li>#}
+						<li class="animation" {% if active_page == 'Disponible' %} class="active"{% endif%}><a href="{{ path('book-list') }}"><span class="ion-ios-book"/> Livres Disponibles </a></li>
+						<li class="animation" {% if active_page == 'Recherche' %} class="active"{% endif%}><a href="{{ path('search') }}"><span class="ion-search"/> Recherche </a></li>
+						<li class="animation" {% if active_page == 'Contact' %} class="active"{% endif%}><a href="{{ path('contact') }}"><span class="ion-email"/> Contact </a></li>
 					{% else %}
-						<li {% if active_page == 'Inscription' %} class="active"{% endif%}><a class="hidden-sm hidden-md hidden-lg" href="{{ path('inscription') }}"> Inscription </a></li>
-						{#<li {% if active_page == 'Connexion' %} class="active "{% endif%}><a href="{{ path('livresVoyageurs_connexion') }}" class="hidden-sm hidden-md hidden-lg">Connexion </a></li>#}
-						{#<li class="animation" {% if active_page == 'Disponible' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_bookList') }}"><span class="ion-ios-book"/> Livres Disponibles </a></li>#}
-						{#<li class="animation" {% if active_page == 'Capture' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_newCapture') }}"><span class="ion-share"/> Enregistrer une Capture </a></li>#}
-						{#<li class="animation" {% if active_page == 'Recherche' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_search') }}"><span class="ion-search"/> Recherche </a></li>#}
-						{#<li class="animation" {% if active_page == 'Connexion' %} class="active"{% endif%}><a href="{{ path('livresVoyageurs_contact') }}"><span class="ion-email"/> Contact </a></li>#}
+						<li {% if active_page == 'Inscription' %} class="active"{% endif%}><a class="hidden-sm hidden-md hidden-lg" href="{{ path('registration') }}"> Inscription </a></li>
+						<li {% if active_page == 'Connexion' %} class="active "{% endif%}><a href="{{ path('login') }}" class="hidden-sm hidden-md hidden-lg">Connexion </a></li>
+						<li class="animation" {% if active_page == 'Disponible' %} class="active"{% endif%}><a href="{{ path('book-list') }}"><span class="ion-ios-book"/> Livres Disponibles </a></li>
+						<li class="animation" {% if active_page == 'Capture' %} class="active"{% endif%}><a href="{{ path('capture') }}"><span class="ion-share"/> Enregistrer une Capture </a></li>
+						<li class="animation" {% if active_page == 'Recherche' %} class="active"{% endif%}><a href="{{ path('search') }}"><span class="ion-search"/> Recherche </a></li>
+						<li class="animation" {% if active_page == 'Contact' %} class="active"{% endif%}><a href="{{ path('contact') }}"><span class="ion-email"/> Contact </a></li>
 					{% endif %}
 				</ul>
 			</div>
@@ -123,7 +122,7 @@
 	}
 
 	#mySidenav {
-	    z-index: 5;
+		z-index: 5;
 	}
 	#mySidenav a {
 		padding: 15px 0 15px 25px

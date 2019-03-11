@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -9,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\MemberRepository")
  */
-class Member
+class Member implements UserInterface
 {
     /**
      * @ORM\Id()
@@ -39,7 +41,7 @@ class Member
     private $avatar;
 
     /**
-     * @ORM\Column(type="string", length=40)
+     * @ORM\Column(type="string", length=40, nullable=true)
      */
     private $token;
 
@@ -49,9 +51,9 @@ class Member
     private $created_at;
 
     /**
-     * @ORM\Column(type="string", length=11)
+     * @ORM\Column(type="json")
      */
-    private $role;
+    private $roles = [];
 
     /**
      * @ORM\Column(type="boolean")
@@ -110,11 +112,6 @@ class Member
         return $this;
     }
 
-    public function getPassword(): ?string
-    {
-        return $this->password;
-    }
-
     public function setPassword(string $password): self
     {
         $this->password = $password;
@@ -158,18 +155,6 @@ class Member
         return $this;
     }
 
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
-
-        return $this;
-    }
-
     public function getActive(): ?bool
     {
         return $this->active;
@@ -180,6 +165,37 @@ class Member
         $this->active = $active;
 
         return $this;
+    }
+
+    /**
+     * UserInterface Methoods
+     */
+    public function getUsername(): ?string
+    {
+        return $this->pseudo;
+    }
+
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    public function getSalt()
+    {
+
+    }
+
+    public function eraseCredentials()
+    {
+
+    }
+
+    public function getRoles(): array
+    {
+        $roles = $this->roles;
+        $roles[] = 'ROLE_MEMBER';
+
+        return array_unique($roles);
     }
 
     /**
