@@ -36,7 +36,7 @@ class Member
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $avatar = 'default.png';
+    private $avatar;
 
     /**
      * @ORM\Column(type="string", length=40)

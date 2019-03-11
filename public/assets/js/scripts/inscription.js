@@ -4,7 +4,7 @@ $(document).ready(function() {
         console.log(l)
     }
 
-    $("#form_pass_member_first").bind("keyup", function () {
+    $("#form_password_first").bind("keyup", function () {
         //TextBox left blank.
         if ($(this).val().length == 0) {
             $("#password_strength").html("");
@@ -63,10 +63,10 @@ $(document).ready(function() {
     // Show/Hide Mdp Help-text
     $("#pass-helptext").hide();
 
-    $("#form_pass_member_first").focus(function() {
+    $("#form_password_first").focus(function() {
         $("#pass-helptext").show();
     });
-    $("#form_pass_member_first").blur(function() {
+    $("#form_password_first").blur(function() {
         $("#pass-helptext").hide();
     });
 
